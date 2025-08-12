@@ -4,12 +4,23 @@ import { Resource } from "i18next"
 export const languangeResources: Resource = {
   en: {
     translation: {
-      welcome: "Welcome"
+      welcome: "Welcome",
+      home: "home",
+      profile: "profile",
+      userPanel: "settings",
+      login: "login",
+      pleaseLogInToAccess: "Please log in to use this feature."
     }
   },
   ar: {
     translation: {
-      welcome: "مرحبا"
+      // translated by ChatGpt
+      welcome: "مرحبا",
+      home: "الصفحة الرئيسية",
+      profile: "الملف الشخصي",
+      userPanel: "الإعدادات",
+      login: "تسجيل الدخول",
+      pleaseLogInToAccess: "يرجى تسجيل الدخول لاستخدام هذه الميزة."
     }
   }
 }
