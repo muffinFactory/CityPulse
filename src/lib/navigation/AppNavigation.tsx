@@ -1,11 +1,13 @@
 import { createStackNavigator } from "@react-navigation/stack"
 
-import SplashScreen from "src/screens/SplashScreen"
+import EventScreen from "src/screens/Event"
+import AppSplashScreen from "src/screens/Splash"
 
 import AuthNavigation from "./AuthNavigation"
 import HomeNavigation from "./HomeNavigation"
+import { AppNavigationParams } from "../routes/type"
 
-const Stack = createStackNavigator()
+const Stack = createStackNavigator<AppNavigationParams>()
 
 const AppNavigation = () => {
   return (
@@ -15,9 +17,10 @@ const AppNavigation = () => {
         headerShown: false
       }}
     >
-      <Stack.Screen name="SplashScreen" component={SplashScreen} />
+      <Stack.Screen name="SplashScreen" component={AppSplashScreen} />
       <Stack.Screen name="AuthNavigation" component={AuthNavigation} />
       <Stack.Screen name="HomeNavigation" component={HomeNavigation} />
+      <Stack.Screen name="Event" component={EventScreen} />
     </Stack.Navigator>
   )
 }

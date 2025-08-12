@@ -2,11 +2,11 @@ import { FC } from "react"
 import { Text, View } from "react-native"
 
 import BaseScreen from "src/components/Layout/BaseScreen"
-import { ScreenOptionsType } from "src/lib/routes/type"
+import { HomeNavigationScreen } from "src/lib/routes/type"
 
-const HomeScreen: FC<ScreenOptionsType<"Home">> = () => {
+const HomeScreen: FC<HomeNavigationScreen<"Home">> = () => {
   return (
-    <BaseScreen>
+    <BaseScreen style={{ justifyContent: "center", alignItems: "center" }}>
       <View>
         <Text>HomeScreen</Text>
       </View>
