@@ -2,6 +2,7 @@ import { I18nManager } from "react-native"
 
 import i18n from "i18next"
 import { initReactI18next } from "react-i18next"
+import restart from "react-native-restart-app"
 
 import { languangeResources } from "./resource"
 
@@ -18,19 +19,17 @@ i18n.use(initReactI18next).init({
   }
 })
 
-export const changeLanguage = async (lng: string) => {
+export const changeAppLanguage = async (lng: string) => {
   if (!supportedLang.includes(lng)) return
   await i18n.changeLanguage(lng)
 
-  const isRTL = supportedLang.includes(lng)
-  if (isRTL && I18nManager.isRTL !== isRTL) {
+  const isRTL = supportedRTL.includes(lng)
+  if (I18nManager.isRTL !== isRTL) {
     I18nManager.forceRTL(isRTL)
-    //TODO React-native restart
+    restart()
   }
 }
 
-if (__DEV__) {
-  changeLanguage("ar")
-}
+export const currentAppLanguage = i18n.language
 
 export default i18n

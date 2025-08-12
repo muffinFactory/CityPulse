@@ -1409,6 +1409,30 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
+  - react-native-restart-app (1.0.7):
+    - DoubleConversion
+    - glog
+    - hermes-engine
+    - RCT-Folly (= 2024.11.18.00)
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-hermes
+    - React-ImageManager
+    - React-jsi
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-renderercss
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - Yoga
   - react-native-safe-area-context (5.6.0):
     - DoubleConversion
     - glog
@@ -2104,6 +2128,7 @@ DEPENDENCIES:
   - react-native-config (from `../node_modules/react-native-config`)
   - react-native-keyboard-controller (from `../node_modules/react-native-keyboard-controller`)
   - react-native-mmkv (from `../node_modules/react-native-mmkv`)
+  - react-native-restart-app (from `../node_modules/react-native-restart-app`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - "react-native-vector-icons-ionicons (from `../node_modules/@react-native-vector-icons/ionicons`)"
   - React-NativeModulesApple (from `../node_modules/react-native/ReactCommon/react/nativemodule/core/platform/ios`)
@@ -2232,6 +2257,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-keyboard-controller"
   react-native-mmkv:
     :path: "../node_modules/react-native-mmkv"
+  react-native-restart-app:
+    :path: "../node_modules/react-native-restart-app"
   react-native-safe-area-context:
     :path: "../node_modules/react-native-safe-area-context"
   react-native-vector-icons-ionicons:
@@ -2353,6 +2380,7 @@ SPEC CHECKSUMS:
   react-native-config: 9f48ad1ee7f4fcb9482c66988e30bd60572bb963
   react-native-keyboard-controller: 97ad1916e4e6e25c993df7457949c974e77a8a81
   react-native-mmkv: 3093e3fe62e3cf6ababf19b65556c34afb62a636
+  react-native-restart-app: 668074cf82d0ad171508dbcc2d102f629c68d2f0
   react-native-safe-area-context: 6863f9e225b541b481514b0f6d51be0867184c2c
   react-native-vector-icons-ionicons: ad07e944a092a5cf71b8b569d8f5ce2bf674c415
   React-NativeModulesApple: 28df2c2241d8e2be46db34179f86ad76a3663068
