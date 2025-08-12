@@ -3,7 +3,7 @@ import { Text, TextProps } from "react-native"
 
 interface BaseTextProps extends TextProps {}
 
-// TODO: RTL Support
+// TODO: RTL
 const BaseText = forwardRef<Text, BaseTextProps>(({ style, children, ...textProps }, ref) => {
   return (
     <Text ref={ref} style={[{ includeFontPadding: false }, style]} {...textProps}>
@@ -15,6 +15,6 @@ const BaseText = forwardRef<Text, BaseTextProps>(({ style, children, ...textProp
 BaseText.displayName = "BaseText"
 
 // export const AnimatedBaseText = Animated.createAnimatedComponent(BaseText)
-export default { BaseText }
+export default BaseText
 
 // export { BaseTextInput } from "./BaseTextInput"
