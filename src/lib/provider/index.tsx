@@ -3,6 +3,7 @@ import React, { ReactNode } from "react"
 import NavigationProvider from "./NavigationProvider"
 import QueryClientProvider from "./QueryClientProvider"
 import SafeAreaProvider from "./SafeAreaProvider"
+import { AppThemeProvider } from "./ThemeProvider"
 
 type AppProviderProps = {
   children: ReactNode
@@ -11,7 +12,9 @@ type AppProviderProps = {
 const AppProvider: React.FC<AppProviderProps> = ({ children }) => (
   <QueryClientProvider>
     <SafeAreaProvider>
-      <NavigationProvider>{children}</NavigationProvider>
+      <AppThemeProvider>
+        <NavigationProvider>{children}</NavigationProvider>
+      </AppThemeProvider>
     </SafeAreaProvider>
   </QueryClientProvider>
 )
