@@ -1,9 +1,12 @@
-/**
- * @format
- */
+import { AppRegistry, LogBox } from "react-native"
 
-import {AppRegistry} from 'react-native';
-import App from './App';
-import {name as appName} from './app.json';
+import { name as appName } from "./app.json"
+import App from "./src/App"
 
-AppRegistry.registerComponent(appName, () => App);
+if (process.env.NODE_ENV === "test") {
+  LogBox.ignoreAllLogs() // suppress all logs in tests
+} else {
+  LogBox.ignoreLogs(["Require cycle:"]) // suppress require-cycle warnings, it's fine
+}
+
+AppRegistry.registerComponent(appName, () => App)
