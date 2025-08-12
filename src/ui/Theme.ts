@@ -4,14 +4,15 @@ import { ColorScheme } from "./type"
 
 // #Credits for reference https://colorhunt.co/palette/f3e2d4c5b0cd415e7217313e
 const AppTheme: ColorScheme = {
-  background: "#F3E2D4",
+  background: "#fff",
   overlay: "#C5B0CD",
   primary: "#17313E",
   secondary: "#415E72",
   headerTextColor: "#000",
   textColor1: "#000000FF",
   textColor2: "#000000B3",
-  textColor3: "#00000080"
+  textColor3: "#00000080",
+  headerTintColor: "#fff"
 }
 
 export { AppTheme }

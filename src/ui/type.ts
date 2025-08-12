@@ -8,4 +8,6 @@ export type ColorScheme = {
   textColor1: string // 100%
   textColor2: string // 70%
   textColor3: string // 50%
+  // TODO: insert other color related feature here
+  headerTintColor: string
 }

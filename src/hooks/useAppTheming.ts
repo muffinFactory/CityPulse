@@ -11,10 +11,9 @@ import { ColorScheme } from "src/ui/type"
  * Usage:
  * ```ts
  * const Theme = useAppTheme();
- * const primaryColor = Theme['primary'];
+ * const primaryColor = Theme.primary;
  * ```
  *
- * @throws {Error} If called without a surrounding ThemeProvider.
  * @returns {ColorScheme} The current theme object from context.
  */
 export const useAppTheme = (): ColorScheme => {
