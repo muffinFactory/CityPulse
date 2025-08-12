@@ -12,6 +12,7 @@ const AppTheme: ColorScheme = {
   textColor1: "#000000FF",
   textColor2: "#000000B3",
   textColor3: "#00000080",
+  statusBarColor: "#415E72",
   headerTintColor: "#fff"
 }
 

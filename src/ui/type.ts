@@ -9,5 +9,6 @@ export type ColorScheme = {
   textColor2: string // 70%
   textColor3: string // 50%
   // TODO: insert other color related feature here
+  statusBarColor: string
   headerTintColor: string
 }

@@ -6,7 +6,7 @@ import { HomeNavigationScreen } from "src/lib/routes/type"
 
 const HomeScreen: FC<HomeNavigationScreen<"Home">> = () => {
   return (
-    <BaseScreen style={{ justifyContent: "center", alignItems: "center" }}>
+    <BaseScreen style={{ justifyContent: "center", alignItems: "center" }} fullscreen={true}>
       <View>
         <Text>HomeScreen</Text>
       </View>

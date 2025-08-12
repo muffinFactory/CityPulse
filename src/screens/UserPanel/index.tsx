@@ -6,7 +6,7 @@ import { HomeNavigationScreen } from "src/lib/routes/type"
 
 const UserPanelScreen: FC<HomeNavigationScreen<"UserPanel">> = ({}) => {
   return (
-    <BaseScreen>
+    <BaseScreen fullscreen>
       <View>
         <Text>UserPanelScreen</Text>
       </View>
