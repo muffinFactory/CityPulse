@@ -6,6 +6,9 @@
     "baseUrl": ".",
     "strictNullChecks": true,
     // "strict": true,
+    "paths": {
+      "src/*": ["src/*"]
+    },
     "jsx": "react-native",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
@@ -14,6 +17,5 @@
     "allowJs": true,
     "outDir": "dist",
     "declaration": true
-  },
-  "include": ["src/**/*"]
+  }
 }
