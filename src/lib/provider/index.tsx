@@ -1,5 +1,6 @@
 import React, { ReactNode } from "react"
 
+import LanguageProvider from "./LanguageProvider"
 import NavigationProvider from "./NavigationProvider"
 import QueryClientProvider from "./QueryClientProvider"
 import SafeAreaProvider from "./SafeAreaProvider"
@@ -12,9 +13,11 @@ type AppProviderProps = {
 const AppProvider: React.FC<AppProviderProps> = ({ children }) => (
   <QueryClientProvider>
     <SafeAreaProvider>
-      <AppThemeProvider>
-        <NavigationProvider>{children}</NavigationProvider>
-      </AppThemeProvider>
+      <LanguageProvider>
+        <AppThemeProvider>
+          <NavigationProvider>{children}</NavigationProvider>
+        </AppThemeProvider>
+      </LanguageProvider>
     </SafeAreaProvider>
   </QueryClientProvider>
 )
