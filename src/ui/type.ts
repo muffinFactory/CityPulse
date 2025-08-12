@@ -1,3 +1,4 @@
+// ColorValue type from RN is not accepted React-Navigation
 export type ColorScheme = {
   background: string
   overlay: string
@@ -11,4 +12,5 @@ export type ColorScheme = {
   // TODO: insert other color related feature here
   statusBarColor: string
   headerTintColor: string
+  textColorOverPrimary: string
 }
