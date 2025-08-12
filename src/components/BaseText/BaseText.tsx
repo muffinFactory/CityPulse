@@ -1,12 +1,16 @@
 import { forwardRef } from "react"
-import { Text, TextProps } from "react-native"
+import { I18nManager, Text, TextProps } from "react-native"
 
 interface BaseTextProps extends TextProps {}
 
 // TODO: RTL
 const BaseText = forwardRef<Text, BaseTextProps>(({ style, children, ...textProps }, ref) => {
   return (
-    <Text ref={ref} style={[{ includeFontPadding: false }, style]} {...textProps}>
+    <Text
+      ref={ref}
+      style={[{ includeFontPadding: false, textAlign: I18nManager.isRTL ? "right" : "left" }, style]}
+      {...textProps}
+    >
       {children}
     </Text>
   )

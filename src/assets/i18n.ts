@@ -29,4 +29,8 @@ export const changeLanguage = async (lng: string) => {
   }
 }
 
+if (__DEV__) {
+  changeLanguage("ar")
+}
+
 export default i18n

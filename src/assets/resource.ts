@@ -5,6 +5,7 @@ export const languangeResources: Resource = {
   en: {
     translation: {
       welcome: "Welcome",
+      welcomeUser: "Welcome, {{name}}",
       home: "home",
       profile: "profile",
       userPanel: "settings",
@@ -16,6 +17,7 @@ export const languangeResources: Resource = {
     translation: {
       // translated by ChatGpt
       welcome: "مرحبا",
+      welcomeUser: "مرحباً {{name}}",
       home: "الصفحة الرئيسية",
       profile: "الملف الشخصي",
       userPanel: "الإعدادات",

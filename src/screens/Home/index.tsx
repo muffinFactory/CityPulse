@@ -17,7 +17,9 @@ const HomeScreen: FC<HomeNavigationScreen<"Home">> = () => {
   return (
     <BaseScreen fullscreen={true}>
       <View style={styles.header}>
-        <BaseText style={styles.headerText}>{`${capitalize(t("welcome"))}, ${userInfo?.name}`}</BaseText>
+        <BaseText style={styles.headerText}>
+          {capitalize(t("welcomeUser", { name: userInfo?.name || "Guest" }))}
+        </BaseText>
       </View>
       {/* TODO: Insert TextBox search Input with eclipse like container */}
       {/* TODO: Flatlist for EventCard */}
