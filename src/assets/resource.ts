@@ -10,7 +10,8 @@ export const languangeResources: Resource = {
       profile: "profile",
       userPanel: "settings",
       login: "login",
-      pleaseLogInToAccess: "Please log in to use this feature."
+      pleaseLogInToAccess: "Please log in to use this feature.",
+      myNameIs: "My name is {{name}}"
     }
   },
   ar: {
@@ -22,7 +23,8 @@ export const languangeResources: Resource = {
       profile: "الملف الشخصي",
       userPanel: "الإعدادات",
       login: "تسجيل الدخول",
-      pleaseLogInToAccess: "يرجى تسجيل الدخول لاستخدام هذه الميزة."
+      pleaseLogInToAccess: "يرجى تسجيل الدخول لاستخدام هذه الميزة.",
+      myNameIs: "اسمي {{name}}"
     }
   }
 }

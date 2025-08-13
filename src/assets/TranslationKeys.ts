@@ -7,3 +7,4 @@ export type TranslationKeys =
   | "settings"
   | "login"
   | "pleaseLogInToAccess"
+  | "myNameIs"
