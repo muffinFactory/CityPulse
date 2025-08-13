@@ -3,6 +3,7 @@ import { useMemo } from "react"
 import { useInfiniteQuery } from "@tanstack/react-query"
 
 import { InfiniteQueryAddon } from "src/model/api"
+import { EventItemResponse } from "src/model/event"
 import { discoverEvent, LocationEventResponse } from "src/service/event"
 
 type InfiniteLocationEventResponse = LocationEventResponse & InfiniteQueryAddon
@@ -38,7 +39,7 @@ export const useDiscoverEvents = (keyword = "") => {
   const dataList = useMemo(
     () => discoveryQuery.data?.pages.flatMap(page => page.data._embedded?.events) ?? [],
     [discoveryQuery.data]
-  )
+  ) as EventItemResponse[]
 
   return { ...discoveryQuery, dataList }
 }

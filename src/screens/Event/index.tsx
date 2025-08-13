@@ -70,7 +70,6 @@ const EventScreen: FC<AppScreen<"Event">> = ({ route }) => {
           style={{ minWidth: "50%" }}
           onPress={toggleFav}
         />
-        {/* TODO isFavorited */}
       </View>
     </BaseScreen>
   )

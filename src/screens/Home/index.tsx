@@ -1,11 +1,9 @@
 import { FC, useState } from "react"
-import { FlatList, View } from "react-native"
+import { View } from "react-native"
 
 import { BaseText, BaseTextInput } from "src/components/BaseText"
-import AppButton from "src/components/Button"
 import BaseScreen from "src/components/Layout/BaseScreen"
-import Spinner from "src/components/Spinner"
-import EventCardFragment from "src/Fragment/EventCard"
+import ListEvents from "src/Fragment/ListEvents"
 import { useDiscoverEvents } from "src/hooks/events/useDiscoverEvents"
 import useAppTranslation from "src/hooks/useAppTranslation"
 import { useUserInfo } from "src/hooks/useUserInfo"
@@ -43,38 +41,15 @@ const HomeScreen: FC<HomeNavigationScreen<"Home">> = () => {
         returnKeyType="search"
       />
       {/* TODO: Move to src/Fragment/ListEvents */}
-      <FlatList
-        data={dataList}
-        keyExtractor={(item, index) => `item-${item?.id || `__${index}`}`}
-        renderItem={({ item }) => <EventCardFragment item={item} />}
-        ListFooterComponent={
-          <ListFooterComponent
-            hasNextPage={hasNextPage}
-            isFetching={isFetching}
-            isLoading={isLoading}
-            fetchNextPage={fetchNextPage}
-          />
-        }
+      <ListEvents
+        dataList={dataList}
+        isFetching={isFetching}
+        isLoading={isLoading}
+        hasNextPage={hasNextPage}
+        fetchNextPage={fetchNextPage}
       />
     </BaseScreen>
   )
 }
-
-type ListFooterComponentType = {
-  hasNextPage: boolean
-  isFetching: boolean
-  isLoading: boolean
-  fetchNextPage: () => void
-}
-const ListFooterComponent = ({ hasNextPage, isFetching, isLoading, fetchNextPage }: ListFooterComponentType) =>
-  hasNextPage ? (
-    <AppButton
-      text={!isFetching && !isLoading ? "Load More" : undefined}
-      onPress={() => !isFetching && !isLoading && fetchNextPage()}
-      style={{ width: "50%", alignSelf: "center" }}
-    >
-      {(isFetching || isLoading) && <Spinner color="#fff" />}
-    </AppButton>
-  ) : undefined
 
 export default HomeScreen
