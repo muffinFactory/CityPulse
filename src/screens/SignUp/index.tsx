@@ -1,15 +1,141 @@
-import { Text, View } from "react-native"
+import { useRef, useState } from "react"
+import { Alert, KeyboardAvoidingView, StyleSheet, TextInput, View } from "react-native"
 
-import BaseScreen from "src/components/Layout/BaseScreen"
+import { BaseTextInput } from "src/components/BaseText"
+import AppButton from "src/components/Button"
+import BaseScrollViewScreen from "src/components/Layout/BaseScrollViewScreen"
+import ScreenHeader from "src/components/ScreenHeader"
+import { useAppTheme } from "src/hooks/useAppTheming"
 
 const SignUpScreen = ({}) => {
+  // TODO setup react hook forms
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [confirmPassword, setConfirmPassword] = useState("")
+  const [quest, setQuest] = useState("")
+  const [favoriteColor, setFavoriteColor] = useState("")
+
+  const Theme = useAppTheme()
+
+  const signUpQA2 = useRef<TextInput>(null)
+  const signUpQA3 = useRef<TextInput>(null)
+  const signUpQA4 = useRef<TextInput>(null)
+  const signUpQA5 = useRef<TextInput>(null)
+
+  const registerUser = () => {
+    // TODO hit useMutationSignUp
+    if (!(email.length > 4 && password.length > 4 && quest.length > 4 && favoriteColor.length > 4)) {
+      Alert.alert("All field have min 4+ char")
+
+      return
+    }
+    if (password === confirmPassword) {
+    } else {
+      Alert.alert("Password not match")
+    }
+  }
+
   return (
-    <BaseScreen>
-      <View>
-        <Text>SignUpScreen</Text>
-      </View>
-    </BaseScreen>
+    <BaseScrollViewScreen bounces={false}>
+      {/* TODO: should use react-native-keyboard-controller */}
+      <KeyboardAvoidingView style={{ flex: 1 }} behavior={"position"} keyboardVerticalOffset={40}>
+        <ScreenHeader title="Welcome" onBack />
+        <View style={styles.container}>
+          {/* Insert App Icon Fragment, dummy view for now */}
+          <View
+            style={{
+              backgroundColor: "black",
+              height: 50,
+              width: 50,
+              alignSelf: "center",
+              marginVertical: 50,
+              borderRadius: 150
+            }}
+          />
+          <BaseTextInput
+            style={styles.input}
+            placeholder="Email"
+            value={email}
+            onChangeText={setEmail}
+            autoCapitalize="none"
+            keyboardType="email-address"
+            onSubmitEditing={() => signUpQA2.current?.focus()}
+            returnKeyType="next"
+          />
+          <BaseTextInput
+            ref={signUpQA2}
+            style={styles.input}
+            placeholder="Password"
+            value={password}
+            onChangeText={setPassword}
+            returnKeyType="next"
+            autoComplete="password"
+            secureTextEntry // may breaks for simulation purposes
+            onSubmitEditing={() => signUpQA3.current?.focus()}
+            textContentType={"password"}
+          />
+          <BaseTextInput
+            ref={signUpQA3}
+            style={styles.input}
+            placeholder="Confirm your Password"
+            value={confirmPassword}
+            onChangeText={setConfirmPassword}
+            returnKeyType="next"
+            secureTextEntry // may break for simulation purposes
+            onSubmitEditing={() => signUpQA4.current?.focus()}
+            textContentType={"password"}
+            autoComplete="password"
+          />
+          <BaseTextInput
+            ref={signUpQA4}
+            style={styles.input}
+            placeholder="What is your quest?"
+            // value={password}
+            onChangeText={setQuest}
+            returnKeyType="next"
+            onSubmitEditing={() => signUpQA5.current?.focus()}
+          />
+          <BaseTextInput
+            ref={signUpQA5}
+            style={styles.input}
+            placeholder="What is your favorite color?"
+            // value={password}
+            onChangeText={setFavoriteColor}
+            returnKeyType="done"
+          />
+          <AppButton text={"Sign up"} onPress={registerUser} style={{ marginTop: 50 }} />
+        </View>
+      </KeyboardAvoidingView>
+    </BaseScrollViewScreen>
   )
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    padding: 20
+  },
+  input: {
+    height: 50,
+    borderWidth: 1,
+    borderColor: "#ccc",
+    borderRadius: 8,
+    marginBottom: 16,
+    paddingHorizontal: 12
+  },
+  button: {
+    backgroundColor: "#007AFF",
+    height: 50,
+    borderRadius: 8,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  buttonText: {
+    color: "#fff",
+    fontSize: 16,
+    fontWeight: "600"
+  }
+})
 
 export default SignUpScreen
