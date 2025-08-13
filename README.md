@@ -1,5 +1,23 @@
 # City Pulse
 
+<p>
+  <img src="./ss/ss_1.png" alt="Screenshot 1" width="200" height="400" />
+  <img src="./ss/ss_2.png" alt="Screenshot 2" width="200" height="400" />
+  <img src="./ss/ss_3.png" alt="Screenshot 3" width="200" height="400" />
+  <img src="./ss/ss_4.png" alt="Screenshot 4" width="200" height="400" />
+  <img src="./ss/ss_5.png" alt="Screenshot 5" width="200" height="400" />
+</p>
+
+### With RTL support
+
+<p>
+<img src="./ss/ss_ar_0.png" alt="Screenshot RTL 1" width="200" height="400" />
+  <img src="./ss/ss_ar_1.png" alt="Screenshot RTL 1" width="200" height="400" />
+  <img src="./ss/ss_ar_2.png" alt="Screenshot RTL 2" width="200" height="400" />
+  <img src="./ss/ss_ar_3.png" alt="ScreenshotRTL 3" width="200" height="400" />
+
+</p>
+
 Demo App for City Events based exploration apps
 
 Demo is build using the following environment:
