@@ -28,6 +28,7 @@ export function useRegisterUserMutation(
       storage.set("name", data?.user?.name ?? "")
       storage.set("quest", data?.user?.quest ?? "")
       storage.set("favoriteColor", data?.user?.favoriteColor ?? "")
+      storage.set("favorite_events_ids", "[]") //remove old ids regardless
       onSuccess?.(data)
     },
     ...options

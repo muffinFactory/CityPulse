@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react"
 
-import { createStorage } from "src/storage"
+import { MMKV } from "react-native-mmkv"
 
-export const useUserStorage = (userId: string) => {
-  const [storage, setStorage] = useState(() => createStorage(userId))
+import { createStorage, getCurrentStorageUser } from "src/storage"
+
+export const useUserStorage = () => {
+  const userId = getCurrentStorageUser()
+  const [storage, setStorage] = useState<MMKV | undefined>(() => createStorage(userId ?? ""))
 
   useEffect(() => {
-    setStorage(createStorage(userId))
+    setStorage(createStorage(userId ?? ""))
   }, [userId])
 
   return storage

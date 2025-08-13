@@ -1,4 +1,4 @@
-import { FC } from "react"
+import { FC, useCallback } from "react"
 import { StyleSheet, View } from "react-native"
 
 import moment from "moment"
@@ -7,6 +7,8 @@ import { BaseText } from "src/components/BaseText"
 import AppButton from "src/components/Button"
 import BaseScreen from "src/components/Layout/BaseScreen"
 import ScreenHeader from "src/components/ScreenHeader"
+import useAppNavigationContext from "src/hooks/navigation/useAppNavigationContext"
+import useFavoriteEvent from "src/hooks/useToggleFavoriteEvent"
 import { useUserInfo } from "src/hooks/useUserInfo"
 import { AppScreen } from "src/lib/routes/type"
 
@@ -15,10 +17,17 @@ import NotFoundPage from "../NotFound"
 const EventScreen: FC<AppScreen<"Event">> = ({ route }) => {
   const locationEvent = route.params.event
   const userInfo = useUserInfo()
-  // const insets = useA
+  const { goToAuth } = useAppNavigationContext()
 
-  const isFavorited = locationEvent?.id && userInfo.favorite_events_ids?.includes(locationEvent?.id)
-  const setFavorite = (_item: any) => {} // TODO: setFavorite hook
+  const { isFavorited, toggleFavorite } = useFavoriteEvent(locationEvent?.id)
+
+  const toggleFav = useCallback(() => {
+    if (userInfo.isGuest) {
+      goToAuth()
+    } else {
+      toggleFavorite()
+    }
+  }, [goToAuth, toggleFavorite, userInfo.isGuest])
 
   if (!locationEvent) {
     return <NotFoundPage />
@@ -58,8 +67,8 @@ const EventScreen: FC<AppScreen<"Event">> = ({ route }) => {
       <View style={{ marginTop: 20, borderTopWidth: 3, padding: 20 }}>
         <AppButton
           text={isFavorited ? "Remove from Favorites" : "Add as Favorite"}
-          style={{ width: "50%" }}
-          onPress={() => setFavorite(locationEvent)}
+          style={{ minWidth: "50%" }}
+          onPress={toggleFav}
         />
         {/* TODO isFavorited */}
       </View>
