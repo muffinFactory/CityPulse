@@ -1,19 +1,27 @@
-import { useRef, useState } from "react"
+import { useCallback, useRef, useState } from "react"
 import { Alert, KeyboardAvoidingView, StyleSheet, TextInput, View } from "react-native"
 
-import { BaseTextInput } from "src/components/BaseText"
+import { BaseText, BaseTextInput } from "src/components/BaseText"
 import AppButton from "src/components/Button"
 import BaseScrollViewScreen from "src/components/Layout/BaseScrollViewScreen"
 import ScreenHeader from "src/components/ScreenHeader"
+import Spinner from "src/components/Spinner"
+import { useRegisterUserMutation } from "src/hooks/auth/useRegisterUser"
+import useAppNavigation from "src/hooks/navigation/useAppNavigation"
 import { useAppTheme } from "src/hooks/useAppTheming"
 
 const SignUpScreen = ({}) => {
+  const appNavigation = useAppNavigation()
   // TODO setup react hook forms
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [confirmPassword, setConfirmPassword] = useState("")
   const [quest, setQuest] = useState("")
   const [favoriteColor, setFavoriteColor] = useState("")
+
+  const navigateMain = useCallback(() => appNavigation.navigate("HomeNavigation"), [appNavigation])
+
+  const { mutate, isPending: isLoading, isError, error } = useRegisterUserMutation(navigateMain)
 
   const Theme = useAppTheme()
 
@@ -30,6 +38,7 @@ const SignUpScreen = ({}) => {
       return
     }
     if (password === confirmPassword) {
+      mutate({ username: email, password, quest, favoriteColor })
     } else {
       Alert.alert("Password not match")
     }
@@ -52,8 +61,18 @@ const SignUpScreen = ({}) => {
               borderRadius: 150
             }}
           />
+          {isError ? (
+            <BaseText
+              style={{ marginVertical: 12, alignSelf: "center", color: Theme.error, fontWeight: "500", fontSize: 18 }}
+            >
+              {error?.message || "Register Failed"}
+            </BaseText>
+          ) : (
+            <View />
+          )}
           <BaseTextInput
             style={styles.input}
+            editable={!isLoading}
             placeholder="Email"
             value={email}
             onChangeText={setEmail}
@@ -65,6 +84,7 @@ const SignUpScreen = ({}) => {
           <BaseTextInput
             ref={signUpQA2}
             style={styles.input}
+            editable={!isLoading}
             placeholder="Password"
             value={password}
             onChangeText={setPassword}
@@ -77,6 +97,7 @@ const SignUpScreen = ({}) => {
           <BaseTextInput
             ref={signUpQA3}
             style={styles.input}
+            editable={!isLoading}
             placeholder="Confirm your Password"
             value={confirmPassword}
             onChangeText={setConfirmPassword}
@@ -89,8 +110,9 @@ const SignUpScreen = ({}) => {
           <BaseTextInput
             ref={signUpQA4}
             style={styles.input}
+            editable={!isLoading}
             placeholder="What is your quest?"
-            // value={password}
+            value={quest}
             onChangeText={setQuest}
             returnKeyType="next"
             onSubmitEditing={() => signUpQA5.current?.focus()}
@@ -98,12 +120,20 @@ const SignUpScreen = ({}) => {
           <BaseTextInput
             ref={signUpQA5}
             style={styles.input}
+            editable={!isLoading}
             placeholder="What is your favorite color?"
-            // value={password}
+            value={favoriteColor}
             onChangeText={setFavoriteColor}
             returnKeyType="done"
           />
-          <AppButton text={"Sign up"} onPress={registerUser} style={{ marginTop: 50 }} />
+          <AppButton
+            text={!isLoading ? "Sign up" : ""}
+            onPress={registerUser}
+            style={{ marginTop: 50 }}
+            disabled={isLoading}
+          >
+            {isLoading && <Spinner />}
+          </AppButton>
         </View>
       </KeyboardAvoidingView>
     </BaseScrollViewScreen>
