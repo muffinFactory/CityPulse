@@ -1,3 +1,4 @@
+import Ionicons, { IoniconsIconName } from "@react-native-vector-icons/ionicons"
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 
 import { useAppTheme } from "src/hooks/useAppTheming"
@@ -25,11 +26,27 @@ const HomeNavigation = () => {
         headerTintColor: Theme.background
       }}
     >
-      <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen name="Profile" component={ProfileScreen} />
-      {!userInfo?.isGuest && <Tab.Screen name="UserPanel" component={UserPanelScreen} />}
+      <Tab.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{ tabBarIcon: ({ color }) => TabBarIcon("home", color) }}
+      />
+      <Tab.Screen
+        name="Profile"
+        component={ProfileScreen}
+        options={{ tabBarIcon: ({ color }) => TabBarIcon("person", color) }}
+      />
+      {!userInfo?.isGuest && (
+        <Tab.Screen
+          name="UserPanel"
+          component={UserPanelScreen}
+          options={{ tabBarIcon: ({ color }) => TabBarIcon("settings", color) }}
+        />
+      )}
     </Tab.Navigator>
   )
 }
+
+const TabBarIcon = (name: IoniconsIconName, color: string) => <Ionicons name={name} size={24} color={color} />
 
 export default HomeNavigation
