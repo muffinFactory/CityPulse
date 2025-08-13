@@ -32,8 +32,8 @@ const SignUpScreen = ({}) => {
 
   const registerUser = () => {
     // TODO hit useMutationSignUp
-    if (!(email.length > 4 && password.length > 4 && quest.length > 4 && favoriteColor.length > 4)) {
-      Alert.alert("All field have min 4+ char")
+    if (!(email.length > 4 && password.length > 4 && quest.length > 4 && favoriteColor.length > 2)) {
+      Alert.alert("All field have min 4+ char (except color)")
 
       return
     }

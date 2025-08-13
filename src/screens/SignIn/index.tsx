@@ -90,7 +90,7 @@ const SignInScreen: FC<AuthNavigationScreen<"SignIn">> = ({ navigation, route })
             {isLoading && <Spinner />}
           </AppButton>
           <View style={{ flexDirection: "row", marginTop: 12, alignSelf: "center" }}>
-            <BaseText>{"Not a Member? "}</BaseText>
+            <BaseText>{" Not a Member? "}</BaseText>
             <BaseText style={{ textDecorationLine: "underline", color: Theme.secondary }} onPress={handleSignUp}>
               {"Sign up"}
             </BaseText>
