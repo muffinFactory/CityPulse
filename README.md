@@ -18,6 +18,8 @@
 
 </p>
 
+Short video demo: https://drive.google.com/file/d/1qKdDFjsbGMSc2cH6Y0uTXd-E1p7ArAmx/view?usp=sharing
+
 Demo App for City Events based exploration apps
 
 Demo is build using the following environment:
