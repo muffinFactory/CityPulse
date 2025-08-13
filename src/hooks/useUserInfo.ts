@@ -7,7 +7,7 @@ type UserInfoStore = {
   setUser: (user: User) => void
 }
 
-const defaultUser = {
+export const defaultUser = {
   name: "Guest",
   isGuest: true
 }

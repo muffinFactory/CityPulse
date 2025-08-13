@@ -5,13 +5,12 @@ import { StackScreenProps } from "@react-navigation/stack"
 import { LocationEventType } from "src/model/event"
 
 export type CommonNavigation = {
-  Splash: undefined
   NotFound: undefined
   ErrorPage: undefined
 }
 
 export type AuthNavigatorParams = CommonNavigation & {
-  SignIn: { enableBack?: boolean }
+  SignIn?: { enableBack?: boolean }
   SignUp: undefined
 }
 
