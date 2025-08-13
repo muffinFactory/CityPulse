@@ -3,11 +3,12 @@ import { View } from "react-native"
 
 import { BaseText } from "src/components/BaseText"
 import BaseScreen from "src/components/Layout/BaseScreen"
+import ListEvents from "src/Fragment/ListEvents"
 import PromptAuthSection from "src/Fragment/PromptAuthSection"
 import useAppNavigationContext from "src/hooks/navigation/useAppNavigationContext"
 import { useAppTheme } from "src/hooks/useAppTheming"
 import useAppTranslation from "src/hooks/useAppTranslation"
-import { useUserInfo } from "src/hooks/useUserInfo"
+import { useUserFavoriteEvents, useUserInfo } from "src/hooks/useUserInfo"
 import { HomeNavigationScreen } from "src/lib/routes/type"
 import { capitalize } from "src/util/string"
 
@@ -18,6 +19,7 @@ const ProfileScreen: FC<HomeNavigationScreen<"Profile">> = ({}) => {
   const Theme = useAppTheme()
   const { t } = useAppTranslation()
   const { goToAuth } = useAppNavigationContext()
+  const userFavoriteEvents = useUserFavoriteEvents()
 
   if (userInfo.isGuest)
     return (
@@ -45,6 +47,7 @@ const ProfileScreen: FC<HomeNavigationScreen<"Profile">> = ({}) => {
       <View style={{ flexDirection: "row", marginHorizontal: 16, marginVertical: 10 }}>
         <BaseText style={{ color: Theme.primary, fontSize: 20, fontWeight: "500" }}>Favorite Items</BaseText>
       </View>
+      <ListEvents dataList={userFavoriteEvents} />
     </BaseScreen>
   )
 }

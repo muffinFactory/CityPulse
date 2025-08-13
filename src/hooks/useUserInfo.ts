@@ -38,6 +38,7 @@ const useUserInfoStore = create<UserInfoStore>(set => ({
 export const useUserInfo = () => useUserInfoStore(state => state.user)
 export const useSetUserInfo = () => useUserInfoStore(state => state.setUser)
 export const useUserFavoriteEventsIds = () => useUserInfoStore(state => state.user.favorite_events_ids)
+export const useUserFavoriteEvents = () => useUserInfoStore(state => state.user.favorite_events)
 export const useAddUserFavoriteEvent = () => useUserInfoStore(state => state.addFavoriteEvent)
 export const useRemoveUserFavoriteEvent = () => useUserInfoStore(state => state.removeFavoriteEvent)
 

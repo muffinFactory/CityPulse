@@ -1,5 +1,6 @@
-import { FlatList } from "react-native"
+import { FlatList, View } from "react-native"
 
+import { BaseText } from "src/components/BaseText"
 import AppButton from "src/components/Button"
 import Spinner from "src/components/Spinner"
 import { EventItemResponse } from "src/model/event"
@@ -14,6 +15,7 @@ type ListEventsProps = {
   fetchNextPage?: () => void
 }
 
+// Later-do: Error fragment
 const ListEvents = (props: ListEventsProps) => {
   const { dataList, hasNextPage, isFetching, isLoading, fetchNextPage } = props
 
@@ -30,6 +32,7 @@ const ListEvents = (props: ListEventsProps) => {
           fetchNextPage={fetchNextPage}
         />
       }
+      ListEmptyComponent={<ListEmptyComponent isLoading={isLoading} />}
     />
   )
 }
@@ -52,3 +55,13 @@ const ListFooterComponent = ({ hasNextPage, isFetching, isLoading, fetchNextPage
       {(isFetching || isLoading) && <Spinner color="#fff" />}
     </AppButton>
   ) : undefined
+
+const ListEmptyComponent = ({ isLoading = false }: { isLoading?: boolean }) => {
+  if (isLoading) return <View />
+
+  return (
+    <View style={{ flexDirection: "row", marginHorizontal: 12 }}>
+      <BaseText>No Events yet</BaseText>
+    </View>
+  )
+}

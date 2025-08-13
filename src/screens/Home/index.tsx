@@ -40,7 +40,6 @@ const HomeScreen: FC<HomeNavigationScreen<"Home">> = () => {
         onSubmitEditing={({ nativeEvent: { text } }) => setKeyword(text)}
         returnKeyType="search"
       />
-      {/* TODO: Move to src/Fragment/ListEvents */}
       <ListEvents
         dataList={dataList}
         isFetching={isFetching}
