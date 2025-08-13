@@ -21,6 +21,7 @@ Demo is build using the following environment:
 
 ## Assumptions & Limitations
 
+- Not all text are using Translation component due to time constraint
 - Public API key is currently store in .env which is not where it supposed to be, but for the purpose of easier testing it stays for now
 - Mock Login & register is implemented, no Password check. Registering with the same username might overwrite the old storage with the new one
 - User has their own storage container, this means User may store their data based on password, theres no password check but if they used different password, it might result with different storage data
