@@ -12,12 +12,12 @@ import { useAppTheme } from "src/hooks/useAppTheming"
 
 const SignUpScreen = ({}) => {
   const appNavigation = useAppNavigation()
-  // Later-DO setup react hook forms
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [confirmPassword, setConfirmPassword] = useState("")
   const [quest, setQuest] = useState("")
   const [favoriteColor, setFavoriteColor] = useState("")
+  // Later-Do setup react hook forms
 
   const navigateMain = useCallback(() => appNavigation.navigate("HomeNavigation"), [appNavigation])
 
@@ -31,7 +31,6 @@ const SignUpScreen = ({}) => {
   const signUpQA5 = useRef<TextInput>(null)
 
   const registerUser = () => {
-    // TODO hit useMutationSignUp
     if (!(email.length > 4 && password.length > 4 && quest.length > 4 && favoriteColor.length > 2)) {
       Alert.alert("All field have min 4+ char (except color)")
 
