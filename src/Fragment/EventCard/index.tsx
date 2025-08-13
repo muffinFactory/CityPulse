@@ -5,6 +5,7 @@ import Ionicons from "@react-native-vector-icons/ionicons"
 import moment from "moment"
 
 import { BaseText } from "src/components/BaseText"
+import useAppNavigationContext from "src/hooks/navigation/useAppNavigationContext"
 import { EventItemResponse } from "src/model/event"
 
 type EventCardProps = {
@@ -14,10 +15,11 @@ type EventCardProps = {
 }
 
 const EventCardFragment: React.FC<EventCardProps> = ({ item, isFavorite, onPress }) => {
+  const { goToEvent } = useAppNavigationContext()
   if (!item) return <View />
 
   return (
-    <TouchableOpacity style={styles.cardContainer} onPress={() => onPress?.(item)}>
+    <TouchableOpacity style={styles.cardContainer} onPress={() => (onPress ? onPress?.(item) : goToEvent(item))}>
       <View style={styles.cardDescContainer}>
         <BaseText numberOfLines={1} style={[styles.cardDescHeader]}>
           {item.name}

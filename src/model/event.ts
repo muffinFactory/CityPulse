@@ -1,13 +1,3 @@
-export type LocationEventType = {
-  id: string
-  name: string
-  location: string
-  desc?: string
-  longitude: number
-  latitude: number
-  time: string
-}
-
 export type EventItemImage = {
   // "ratio": "3_2",
   url: string

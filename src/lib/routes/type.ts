@@ -2,7 +2,7 @@ import type { BottomTabScreenProps } from "@react-navigation/bottom-tabs"
 import { NavigationProp, NavigatorScreenParams, RouteProp } from "@react-navigation/native"
 import { StackScreenProps } from "@react-navigation/stack"
 
-import { LocationEventType } from "src/model/event"
+import { EventItemResponse } from "src/model/event"
 
 export type CommonNavigation = {
   NotFound: undefined
@@ -25,7 +25,7 @@ export type AppNavigationParams = CommonNavigation & {
   HomeNavigation: undefined
   AuthNavigation: NavigatorScreenParams<AuthNavigatorParams>
   Event: {
-    event?: LocationEventType
+    event?: EventItemResponse
   }
 }
 
