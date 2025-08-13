@@ -1,5 +1,6 @@
 import type { BottomTabScreenProps } from "@react-navigation/bottom-tabs"
-import { NavigationProp, RouteProp } from "@react-navigation/native"
+import { NavigationProp, NavigatorScreenParams, RouteProp } from "@react-navigation/native"
+import { StackScreenProps } from "@react-navigation/stack"
 
 import { LocationEventType } from "src/model/event"
 
@@ -10,7 +11,7 @@ export type CommonNavigation = {
 }
 
 export type AuthNavigatorParams = CommonNavigation & {
-  SignIn: undefined
+  SignIn: { enableBack?: boolean }
   SignUp: undefined
 }
 
@@ -23,7 +24,7 @@ export type HomeNavigatorParams = {
 export type AppNavigationParams = CommonNavigation & {
   SplashScreen: undefined
   HomeNavigation: undefined
-  AuthNavigation: undefined
+  AuthNavigation: NavigatorScreenParams<AuthNavigatorParams>
   Event: {
     event?: LocationEventType
   }
@@ -35,6 +36,11 @@ export type MainAppNavigation = NavigationProp<AppNavigationParams>
 
 export type HomeNavigationScreen<RouteName extends keyof HomeNavigatorParams> = BottomTabScreenProps<
   HomeNavigatorParams,
+  RouteName
+>
+
+export type AuthNavigationScreen<RouteName extends keyof AuthNavigatorParams> = StackScreenProps<
+  AuthNavigatorParams,
   RouteName
 >
 

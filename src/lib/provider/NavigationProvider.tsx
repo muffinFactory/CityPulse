@@ -18,7 +18,10 @@ const NavProvider: React.FC<NavigationProviderProps> = ({ children }) => {
 
   // TODO: Insert universal navigation here
   const goToAuth = useCallback(() => {
-    navigation.navigate("AuthNavigation")
+    navigation.navigate("AuthNavigation", {
+      screen: "SignIn",
+      params: { enableBack: true }
+    })
   }, [navigation])
 
   return <NavigationContext.Provider value={{ goToAuth }}>{children}</NavigationContext.Provider>
