@@ -6,12 +6,12 @@ export type ColorScheme = {
   secondary: string
   warning: string
   error: string
-  // TODO: should expand this more
+  // Later-Do: should expand this more
   headerTextColor: string
   textColor1: string // 100%
   textColor2: string // 70%
   textColor3: string // 50%
-  // TODO: insert other color related feature here
+  // Later-Do: insert other color related feature here
   statusBarColor: string
   headerTintColor: string
   textColorOverPrimary: string

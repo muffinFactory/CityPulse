@@ -21,21 +21,20 @@ const UserPanelScreen: FC<HomeNavigationScreen<"UserPanel">> = ({}) => {
   return (
     <BaseScrollViewScreen fullscreen style={{ paddingTop: 10 }}>
       <HeaderText>Account & Language</HeaderText>
-      <DummyPanelButton menuIcon="man">Change Profile</DummyPanelButton>
-      <DummyPanelButton menuIcon="calendar">My Events</DummyPanelButton>
-      {/* Todo switch button for this */}
-      <DummyPanelButton menuIcon="language" onPress={changeLanguage}>
+      <PanelButton menuIcon="man">Change Profile</PanelButton>
+      <PanelButton menuIcon="calendar">My Events</PanelButton>
+      {/* Later-Do switch button for this */}
+      <PanelButton menuIcon="language" onPress={changeLanguage}>
         Change Language
-      </DummyPanelButton>
+      </PanelButton>
       <Separator />
       <HeaderText>Security</HeaderText>
-      <DummyPanelButton menuIcon="lock-closed">Change Pin</DummyPanelButton>
-      <DummyPanelButton menuIcon="eye">Bio-Metric</DummyPanelButton>
+      <PanelButton menuIcon="lock-closed">Change Pin</PanelButton>
+      <PanelButton menuIcon="eye">Bio-Metric</PanelButton>
       <Separator />
       <HeaderText>Information</HeaderText>
-      <DummyPanelButton menuIcon="build">About CityPulse</DummyPanelButton>
-      <DummyPanelButton menuIcon="book">Terms and services</DummyPanelButton>
-      {/* TODO: Logout action */}
+      <PanelButton menuIcon="build">About CityPulse</PanelButton>
+      <PanelButton menuIcon="book">Terms and services</PanelButton>
       <AppButton text="Log out" style={{ marginTop: 40, marginHorizontal: 20 }} onPress={logout} />
     </BaseScrollViewScreen>
   )
@@ -59,7 +58,7 @@ const HeaderText = ({ children }: { children: ReactNode }) => (
     </BaseText>
   </View>
 )
-const DummyPanelButton = ({
+const PanelButton = ({
   children,
   onPress,
   menuIcon

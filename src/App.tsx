@@ -1,6 +1,6 @@
 import React from "react"
 
-// TODO: moment declaration, use the other library next for dating stuff
+// Later-Do: moment declaration, use the other library next for dating stuff
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import moment from "moment"
 

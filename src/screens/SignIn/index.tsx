@@ -13,7 +13,7 @@ import { AuthNavigationScreen } from "src/lib/routes/type"
 
 const SignInScreen: FC<AuthNavigationScreen<"SignIn">> = ({ navigation, route }) => {
   const appNavigation = useAppNavigation()
-  // TODO setup react hook forms
+  // Later-Do setup react hook forms
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
@@ -42,7 +42,7 @@ const SignInScreen: FC<AuthNavigationScreen<"SignIn">> = ({ navigation, route })
 
   return (
     <BaseScrollViewScreen bounces={false}>
-      {/* TODO: should use react-native-keyboard-controller */}
+      {/* Later-Do: should use react-native-keyboard-controller */}
       <KeyboardAvoidingView style={{ flex: 1 }} behavior={"position"} keyboardVerticalOffset={40}>
         <ScreenHeader title="Welcome" onBack={route.params?.enableBack} />
         <View style={styles.container}>

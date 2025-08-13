@@ -6,7 +6,7 @@ import { ColorScheme } from "src/ui/type"
 
 const availableAppThemes: Record<string, ColorScheme> = {
   light: AppTheme,
-  // TODO: different theme later
+  // Later-Do: different theme later
   dark: AppTheme
 }
 

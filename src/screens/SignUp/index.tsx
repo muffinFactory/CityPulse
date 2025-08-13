@@ -12,12 +12,12 @@ import { useAppTheme } from "src/hooks/useAppTheming"
 
 const SignUpScreen = ({}) => {
   const appNavigation = useAppNavigation()
-  // TODO setup react hook forms
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [confirmPassword, setConfirmPassword] = useState("")
-  const [quest, setQuest] = useState("")
-  const [favoriteColor, setFavoriteColor] = useState("")
+  // Later-Do setup react hook forms
+  const [email, setEmail] = useState("Sir Lancelot")
+  const [password, setPassword] = useState("holy grail")
+  const [confirmPassword, setConfirmPassword] = useState("holy grail")
+  const [quest, setQuest] = useState("To seek the holy grail")
+  const [favoriteColor, setFavoriteColor] = useState("Blue")
 
   const navigateMain = useCallback(() => appNavigation.navigate("HomeNavigation"), [appNavigation])
 
@@ -31,7 +31,6 @@ const SignUpScreen = ({}) => {
   const signUpQA5 = useRef<TextInput>(null)
 
   const registerUser = () => {
-    // TODO hit useMutationSignUp
     if (!(email.length > 4 && password.length > 4 && quest.length > 4 && favoriteColor.length > 2)) {
       Alert.alert("All field have min 4+ char (except color)")
 
@@ -46,7 +45,7 @@ const SignUpScreen = ({}) => {
 
   return (
     <BaseScrollViewScreen bounces={false}>
-      {/* TODO: should use react-native-keyboard-controller */}
+      {/* Later-Do: should use react-native-keyboard-controller */}
       <KeyboardAvoidingView style={{ flex: 1 }} behavior={"position"} keyboardVerticalOffset={40}>
         <ScreenHeader title="Welcome" onBack />
         <View style={styles.container}>

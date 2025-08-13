@@ -40,7 +40,7 @@ type BaseButtonProps = TouchableOpacityProps & {
  */
 const AppButton: React.FC<BaseButtonProps> = props => {
   // BaseButton already taken by gesture handle :v
-  // TODO: Maybe handle if we want Text first and then button?
+  // Later-Do: Maybe handle if we want Text first and then button?
   const { text, textStyle, style, iconName, iconStyle, children, ...touchableProps } = props
   const Theme = useAppTheme()
 

@@ -3,7 +3,6 @@ import { I18nManager, Text, TextProps } from "react-native"
 
 interface BaseTextProps extends TextProps {}
 
-// TODO: RTL
 const BaseText = forwardRef<Text, BaseTextProps>(({ style, children, ...textProps }, ref) => {
   return (
     <Text

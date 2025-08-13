@@ -1,7 +1,6 @@
 import { forwardRef } from "react"
 import { I18nManager, TextInput, TextInputProps } from "react-native"
 
-// TODO RTL support
 const BaseTextInput = forwardRef<TextInput, TextInputProps>(({ style, ...props }, ref) => {
   return (
     <TextInput

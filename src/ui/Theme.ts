@@ -1,6 +1,6 @@
 import { ColorScheme } from "./type"
 
-// TODO: Expand colorScheme for theming later
+// Later-Do: Expand colorScheme for theming later
 
 // #Credits for reference https://colorhunt.co/palette/f3e2d4c5b0cd415e7217313e
 const AppTheme: ColorScheme = {

@@ -1,4 +1,4 @@
-// TODO: expand as needed
+// Later-Do: expand as needed
 export type TranslationKeys =
   | "welcome"
   | "welcomeUser"

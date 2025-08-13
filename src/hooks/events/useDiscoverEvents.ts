@@ -7,7 +7,7 @@ import { discoverEvent, LocationEventResponse } from "src/service/event"
 
 type InfiniteLocationEventResponse = LocationEventResponse & InfiniteQueryAddon
 
-// TODO: add user token or id for tracking or auth or etc
+// Later-Do: add user token or id for tracking or auth or etc
 
 export const useDiscoverEvents = (keyword = "") => {
   const discoveryQuery = useInfiniteQuery({

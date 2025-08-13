@@ -8,7 +8,7 @@ import { EventItemResponse } from "src/model/event"
 // type PossibleScreen = keyof HomeNavigatorParams
 
 export interface NavigationContextType {
-  // TODO: if we want to add universal nav (404, error, etc, insert here)
+  // Later-Do: if we want to add universal nav (404, error, etc, insert here)
   goToAuth: () => void
   goToEvent: (event: EventItemResponse) => void
 }
@@ -18,7 +18,7 @@ export const NavigationContext = createContext<NavigationContextType>({ goToAuth
 const NavProvider: React.FC<NavigationProviderProps> = ({ children }) => {
   const navigation = useAppNavigation()
 
-  // TODO: Insert universal navigation here
+  // Later-Do: Insert universal navigation here
   const goToAuth = useCallback(() => {
     navigation.navigate("AuthNavigation", {
       screen: "SignIn",

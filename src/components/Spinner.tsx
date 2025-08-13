@@ -6,7 +6,7 @@ interface SpinnerProps {
   color?: string
 }
 
-// TODO: get better spinner that has more size options
+// Later-Do: get better spinner that has more size options
 const Spinner: React.FC<SpinnerProps> = ({ size, color }) => {
   return (
     <View style={styles.container}>

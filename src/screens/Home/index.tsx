@@ -27,7 +27,7 @@ const HomeScreen: FC<HomeNavigationScreen<"Home">> = () => {
           {capitalize(t("welcomeUser", { name: userInfo?.name || "Guest" }))}
         </BaseText>
       </View>
-      {/* TODO: move to src/Home/SearchBar */}
+      {/* Later-Do: move to src/Home/SearchBar */}
       <BaseTextInput
         style={{
           height: 50,

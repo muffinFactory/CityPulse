@@ -1,6 +1,6 @@
 import { Resource } from "i18next"
 
-// TODO: add type support to highlight missing translation?
+// Later-Do: add type support to highlight missing translation?
 export const languangeResources: Resource = {
   en: {
     translation: {

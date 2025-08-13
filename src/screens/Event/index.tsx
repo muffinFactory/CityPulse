@@ -17,7 +17,7 @@ const EventScreen: FC<AppScreen<"Event">> = ({ route }) => {
   const userInfo = useUserInfo()
   // const insets = useA
 
-  const isFavorited = userInfo.favorite_events_ids?.includes(locationEvent?.id)
+  const isFavorited = locationEvent?.id && userInfo.favorite_events_ids?.includes(locationEvent?.id)
   const setFavorite = (_item: any) => {} // TODO: setFavorite hook
 
   if (!locationEvent) {

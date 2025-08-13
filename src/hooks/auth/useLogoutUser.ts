@@ -9,7 +9,7 @@ export const useLogoutUser = () => {
     AppNavigation.navigate("AuthNavigation", { screen: "SignIn" })
     setTimeout(() => {
       setUserInfo(defaultUser)
-      // TODO: delete local storage, or not so registered user can still see their quest
+      // Later-Do: delete local storage, or not so registered user can still see their quest
     }, 500)
   }
 }
