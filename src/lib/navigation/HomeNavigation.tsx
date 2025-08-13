@@ -1,6 +1,7 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 
 import { useAppTheme } from "src/hooks/useAppTheming"
+import { useUserInfo } from "src/hooks/useUserInfo"
 import HomeScreen from "src/screens/Home"
 import ProfileScreen from "src/screens/Profile"
 import UserPanelScreen from "src/screens/UserPanel"
@@ -11,6 +12,7 @@ const Tab = createBottomTabNavigator<HomeNavigatorParams>()
 
 const HomeNavigation = () => {
   const Theme = useAppTheme()
+  const userInfo = useUserInfo()
 
   return (
     <Tab.Navigator
@@ -25,7 +27,7 @@ const HomeNavigation = () => {
     >
       <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen name="Profile" component={ProfileScreen} />
-      <Tab.Screen name="UserPanel" component={UserPanelScreen} />
+      {!userInfo?.isGuest && <Tab.Screen name="UserPanel" component={UserPanelScreen} />}
     </Tab.Navigator>
   )
 }
