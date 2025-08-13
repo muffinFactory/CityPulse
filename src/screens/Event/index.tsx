@@ -7,6 +7,7 @@ import { BaseText } from "src/components/BaseText"
 import AppButton from "src/components/Button"
 import BaseScreen from "src/components/Layout/BaseScreen"
 import ScreenHeader from "src/components/ScreenHeader"
+import EventMapFragment from "src/Fragment/EventMap"
 import useAppNavigationContext from "src/hooks/navigation/useAppNavigationContext"
 import useFavoriteEvent from "src/hooks/useToggleFavoriteEvent"
 import { useUserInfo } from "src/hooks/useUserInfo"
@@ -46,22 +47,7 @@ const EventScreen: FC<AppScreen<"Event">> = ({ route }) => {
       <View style={{ marginBottom: 20, borderBottomWidth: 3 }} />
       <View style={{ height: 300, width: "100%", backgroundColor: "black" }}>
         {/* TODO mapView */}
-        {/* <MapView
-					style={{ flex: 1 }}
-					initialRegion={{
-						latitude: locationEvent.location?.latitude || 0,
-						longitude: locationEvent.location?.longitude || 0,
-						latitudeDelta: 0.01,
-						longitudeDelta: 0.01,
-					}}
-				>
-					<Marker
-						coordinate={{
-							latitude: locationEvent.location?.latitude || 0,
-							longitude: locationEvent.location?.longitude || 0,
-						}}
-					/>
-				</MapView> */}
+        <EventMapFragment event={locationEvent} />
       </View>
 
       <View style={{ marginTop: 20, borderTopWidth: 3, padding: 20 }}>
