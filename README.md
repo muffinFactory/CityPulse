@@ -18,7 +18,10 @@
 
 </p>
 
-Short video demo: https://drive.google.com/file/d/1qKdDFjsbGMSc2cH6Y0uTXd-E1p7ArAmx/view?usp=sharing
+### Short video demos:
+
+- https://drive.google.com/file/d/1qKdDFjsbGMSc2cH6Y0uTXd-E1p7ArAmx/view?usp=sharing
+- https://drive.google.com/file/d/1ZupxlA9P7NXQeauEQ5goh4-HY076leB0/view?usp=share_link
 
 Demo App for City Events based exploration apps
 
