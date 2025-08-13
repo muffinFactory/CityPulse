@@ -8,29 +8,47 @@ type UserInfoStore = {
   user: User // later-do: should've split favorites
   userStorage?: MMKV // later-do: should've instantiated storage here
   setUser: (user: User, storage?: MMKV) => void
-  addFavoriteEvent: (eventId: EventItemResponse["id"], storage?: MMKV) => void
-  removeFavoriteEvent: (eventId: EventItemResponse["id"], storage?: MMKV) => void
+  addFavoriteEvent: (event: EventItemResponse, storage?: MMKV) => void
+  removeFavoriteEvent: (event: EventItemResponse, storage?: MMKV) => void
 }
 
 const useUserInfoStore = create<UserInfoStore>(set => ({
   user: defaultUser,
   userStorage: undefined,
   setUser: newUser => set({ user: newUser }),
-  addFavoriteEvent: (eventId, storage) => {
+  addFavoriteEvent: (event, storage) => {
     set(prevState => {
-      const newFavorites = [...(prevState?.user.favorite_events_ids ?? []), eventId]
-      storage?.set("favorite_events_ids", JSON.stringify(newFavorites))
+      const newFavoritesIds = [...(prevState?.user.favorite_events_ids ?? []), event.id]
+      const newFavorites = [...(prevState?.user.favorite_events ?? []), event]
+      storage?.set("favorite_events_ids", JSON.stringify(newFavoritesIds))
+      storage?.set("favorite_events", JSON.stringify(newFavorites))
 
-      return { ...prevState, user: { ...prevState.user, favorite_events_ids: newFavorites } }
+      return {
+        ...prevState,
+        user: {
+          ...prevState.user,
+          favorite_events_ids: newFavoritesIds,
+          favorite_events: newFavorites
+        }
+      }
     })
   },
-  removeFavoriteEvent: (eventId, storage) => {
+  removeFavoriteEvent: (event, storage) => {
     set(prevState => {
-      const currentFavorites = prevState?.user.favorite_events_ids ?? []
-      const newFavorites = currentFavorites.filter(id => id !== eventId)
-      storage?.set("favorite_events_ids", JSON.stringify(newFavorites))
+      const currentFavoritesIds = prevState?.user.favorite_events_ids ?? []
+      const newFavoritesIds = currentFavoritesIds.filter(id => id !== event.id)
+      const newFavorites = (prevState?.user.favorite_events ?? []).filter(item => item.id !== event.id)
+      storage?.set("favorite_events_ids", JSON.stringify(newFavoritesIds))
+      storage?.set("favorite_events", JSON.stringify(newFavorites))
 
-      return { ...prevState, user: { ...prevState.user, favorite_events_ids: newFavorites } }
+      return {
+        ...prevState,
+        user: {
+          ...prevState.user,
+          favorite_events_ids: newFavoritesIds,
+          favorite_events: newFavorites
+        }
+      }
     })
   }
 }))

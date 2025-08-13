@@ -43,7 +43,6 @@ const ProfileScreen: FC<HomeNavigationScreen<"Profile">> = ({}) => {
         <ProfileHeaderText text="What is your favorite color?" />
         <ProfileValueText text={userInfo?.favoriteColor} />
       </View>
-      {/* TODO list favorited items */}
       <View style={{ flexDirection: "row", marginHorizontal: 16, marginVertical: 10 }}>
         <BaseText style={{ color: Theme.primary, fontSize: 20, fontWeight: "500" }}>Favorite Items</BaseText>
       </View>

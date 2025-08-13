@@ -27,7 +27,8 @@ const useLocalUser = () => {
         name: username,
         quest: storage.getString("quest"),
         favoriteColor: storage.getString("favoriteColor"),
-        favorite_events_ids: JSON.parse(storage.getString("favorite_events_ids") ?? "[]")
+        favorite_events_ids: JSON.parse(storage.getString("favorite_events_ids") ?? "[]"),
+        favorite_events: JSON.parse(storage.getString("favorite_events") ?? "[]")
       })
       setIsLoading(false)
     } else {

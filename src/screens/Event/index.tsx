@@ -20,7 +20,7 @@ const EventScreen: FC<AppScreen<"Event">> = ({ route }) => {
   const userInfo = useUserInfo()
   const { goToAuth } = useAppNavigationContext()
 
-  const { isFavorited, toggleFavorite } = useFavoriteEvent(locationEvent?.id)
+  const { isFavorited, toggleFavorite } = useFavoriteEvent(locationEvent)
 
   const toggleFav = useCallback(() => {
     if (userInfo.isGuest) {
@@ -46,7 +46,6 @@ const EventScreen: FC<AppScreen<"Event">> = ({ route }) => {
 
       <View style={{ marginBottom: 20, borderBottomWidth: 3 }} />
       <View style={{ height: 300, width: "100%", backgroundColor: "black" }}>
-        {/* TODO mapView */}
         <EventMapFragment event={locationEvent} />
       </View>
 
