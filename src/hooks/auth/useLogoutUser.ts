@@ -10,6 +10,6 @@ export const useLogoutUser = () => {
     setTimeout(() => {
       setUserInfo(defaultUser)
       // TODO: delete local storage
-    }, 200)
+    }, 500)
   }
 }

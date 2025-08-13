@@ -2,12 +2,12 @@ import { FC, ReactNode } from "react"
 import { TouchableOpacity, View } from "react-native"
 
 import Ionicons, { IoniconsIconName } from "@react-native-vector-icons/ionicons"
-import restart from "react-native-restart-app"
 
 import { changeAppLanguage, currentAppLanguage } from "src/assets/i18n"
 import { BaseText } from "src/components/BaseText"
 import AppButton from "src/components/Button"
 import BaseScrollViewScreen from "src/components/Layout/BaseScrollViewScreen"
+import { useLogoutUser } from "src/hooks/auth/useLogoutUser"
 import { HomeNavigationScreen } from "src/lib/routes/type"
 import { RTLPick } from "src/util/layout"
 
@@ -15,6 +15,8 @@ const UserPanelScreen: FC<HomeNavigationScreen<"UserPanel">> = ({}) => {
   const changeLanguage = () => {
     changeAppLanguage(currentAppLanguage === "en" ? "ar" : "en")
   }
+
+  const logout = useLogoutUser()
 
   return (
     <BaseScrollViewScreen fullscreen style={{ paddingTop: 10 }}>
@@ -34,7 +36,7 @@ const UserPanelScreen: FC<HomeNavigationScreen<"UserPanel">> = ({}) => {
       <DummyPanelButton menuIcon="build">About CityPulse</DummyPanelButton>
       <DummyPanelButton menuIcon="book">Terms and services</DummyPanelButton>
       {/* TODO: Logout action */}
-      <AppButton text="Log out" style={{ marginTop: 40, marginHorizontal: 20 }} onPress={() => restart()} />
+      <AppButton text="Log out" style={{ marginTop: 40, marginHorizontal: 20 }} onPress={logout} />
     </BaseScrollViewScreen>
   )
 }

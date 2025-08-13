@@ -4,6 +4,8 @@ export type ColorScheme = {
   overlay: string
   primary: string
   secondary: string
+  warning: string
+  error: string
   // TODO: should expand this more
   headerTextColor: string
   textColor1: string // 100%

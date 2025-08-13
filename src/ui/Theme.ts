@@ -8,6 +8,8 @@ const AppTheme: ColorScheme = {
   overlay: "#C5B0CD",
   primary: "#17313E",
   secondary: "#415E72",
+  warning: "#FFA500",
+  error: "#FF0000",
   headerTextColor: "#000",
   textColor1: "#000000FF",
   textColor2: "#000000B3",
