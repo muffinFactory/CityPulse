@@ -8,3 +8,4 @@ export type TranslationKeys =
   | "login"
   | "pleaseLogInToAccess"
   | "myNameIs"
+  | "CityPulse"

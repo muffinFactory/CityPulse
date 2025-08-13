@@ -11,7 +11,8 @@ export const languangeResources: Resource = {
       userPanel: "settings",
       login: "login",
       pleaseLogInToAccess: "Please log in to use this feature.",
-      myNameIs: "My name is {{name}}"
+      myNameIs: "My name is {{name}}",
+      CityPulse: "CityPulse"
     }
   },
   ar: {
@@ -24,7 +25,8 @@ export const languangeResources: Resource = {
       userPanel: "الإعدادات",
       login: "تسجيل الدخول",
       pleaseLogInToAccess: "يرجى تسجيل الدخول لاستخدام هذه الميزة.",
-      myNameIs: "اسمي {{name}}"
+      myNameIs: "اسمي {{name}}",
+      CityPulse: "سيتي بالس"
     }
   }
 }

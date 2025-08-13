@@ -25,6 +25,7 @@ export function useRegisterUserMutation(
       const storage = createStorage(currentUser)
       setUserInfo({ ...data.user })
       console.log(storage.toJSON())
+      storage.set("name", data?.user?.name ?? "")
       storage.set("quest", data?.user?.quest ?? "")
       storage.set("favoriteColor", data?.user?.favoriteColor ?? "")
       onSuccess?.(data)
