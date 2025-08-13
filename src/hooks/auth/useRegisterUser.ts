@@ -1,20 +1,20 @@
 import { useMutation, UseMutationOptions } from "@tanstack/react-query"
 
 import { ApiError } from "src/lib/Api"
-import { LoginParams, LoginResponse, userLoginAPI } from "src/service/user"
+import { RegisterParams, RegisterResponse, userRegisterAPI } from "src/service/user"
 
 import { useSetUserInfo } from "../useUserInfo"
 
-export function useLoginUserMutation(
-  onSuccess?: (data: LoginResponse) => void,
-  options?: UseMutationOptions<LoginResponse, ApiError, LoginParams>
+export function useRegisterUserMutation(
+  onSuccess?: (data: RegisterResponse) => void,
+  options?: UseMutationOptions<RegisterResponse, ApiError, RegisterParams>
 ) {
   const setUserInfo = useSetUserInfo()
 
-  return useMutation<LoginResponse, ApiError, LoginParams>({
-    mutationKey: ["MUTATION_KEY_LOGIN"],
+  return useMutation<RegisterResponse, ApiError, RegisterParams>({
+    mutationKey: ["MUTATION_KEY_REG"],
     mutationFn: async params => {
-      const data = await userLoginAPI(params)
+      const data = await userRegisterAPI(params)
 
       return data.data
     },
