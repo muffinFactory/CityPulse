@@ -79,6 +79,7 @@ const SignUpScreen = ({}) => {
             keyboardType="email-address"
             onSubmitEditing={() => signUpQA2.current?.focus()}
             returnKeyType="next"
+            autoCorrect={false}
           />
           <BaseTextInput
             ref={signUpQA2}
@@ -115,6 +116,7 @@ const SignUpScreen = ({}) => {
             onChangeText={setQuest}
             returnKeyType="next"
             onSubmitEditing={() => signUpQA5.current?.focus()}
+            autoCorrect={false}
           />
           <BaseTextInput
             ref={signUpQA5}
@@ -124,6 +126,7 @@ const SignUpScreen = ({}) => {
             value={favoriteColor}
             onChangeText={setFavoriteColor}
             returnKeyType="done"
+            autoCorrect={false}
           />
           <AppButton
             text={!isLoading ? "Sign up" : ""}

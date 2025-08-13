@@ -68,6 +68,7 @@ const SignInScreen: FC<AuthNavigationScreen<"SignIn">> = ({ navigation, route })
             keyboardType="email-address"
             onSubmitEditing={() => passwordInputRef.current?.focus()}
             returnKeyType="next"
+            autoCorrect={false}
           />
           <BaseTextInput
             ref={passwordInputRef}
